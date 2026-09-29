@@ -15,11 +15,13 @@ public class Cuenta {
 
     public void consignar(float cantidad){
         this.saldo += cantidad;
+        this.numeroConsignaciones++;
     }
 
     public void retirar(float cantidad){
         if (cantidad <= this.saldo) {
             this.saldo -= cantidad;
+            this.numeroRetiros++;
         }
     }
 
@@ -32,6 +34,8 @@ public class Cuenta {
     public void extractoMensual(){
         this.saldo -= this.comisionMensual;
         this.calcularInteres();
+        this.numeroConsignaciones = 0;
+        this.numeroRetiros = 0;
 
     }
 
