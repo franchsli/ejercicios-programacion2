@@ -24,14 +24,13 @@ public class Cuenta {
     }
 
     public void calcularInteres(){
-        float interesMensual = saldo * tasaAnual / 12;
+        float interesMensual = saldo * ((tasaAnual / 12) / 100);
         this.consignar(interesMensual);
 
     }
 
     public void extractoMensual(){
-        float valorComisionMensual =  saldo * this.comisionMensual;
-        this.retirar(valorComisionMensual);
+        this.retirar(this.comisionMensual);
         this.calcularInteres();
 
     }
